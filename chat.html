@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html>
+<head><title>Chat Room</title></head>
+<body>
+<h2>Welcome, {{ user }}</h2>
+<form action="/send" method="POST">
+  <input type="text" name="message" placeholder="Type message here...">
+  <input type="submit" value="Send">
+</form>
+<pre>
+{% for line in open('chatlog.txt').readlines() %}
+{{ line.strip() }}
+{% endfor %}
+</pre>
+<a href="/logout">Logout</a>
+</body>
+</html>
